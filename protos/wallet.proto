@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package wallet;
+
+service WalletBackup {
+    rpc withdraw(WithdrawRequest) returns (TransactionResponse);
+    rpc deposit(DepositRequest) returns (TransactionResponse);
+    rpc getBalance(GetBalanceRequest) returns (GetBalanceResponse);
+}
+
+message WithdrawRequest {
+    string account_id = 1;
+    double amount = 2;
+}
+
+message DepositRequest {
+    string account_id = 1;
+    double amount = 2;
+}
+
+message GetBalanceRequest {
+    string account_id = 1;
+}
+
+message TransactionResponse {
+    bool success = 1;
+    string message = 2;
+    double new_balance = 3;
+}
+
+message GetBalanceResponse {
+    bool success = 1;
+    double balance = 2;
+    string message = 3;
+}
