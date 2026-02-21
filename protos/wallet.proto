@@ -11,11 +11,13 @@ service WalletBackup {
 message WithdrawRequest {
     string account_id = 1;
     double amount = 2;
+    string transaction_id = 3;  // NEW: Unique ID for idempotency
 }
 
 message DepositRequest {
     string account_id = 1;
     double amount = 2;
+    string transaction_id = 3;  // NEW: Unique ID for idempotency
 }
 
 message GetBalanceRequest {
@@ -26,6 +28,7 @@ message TransactionResponse {
     bool success = 1;
     string message = 2;
     double new_balance = 3;
+    string transaction_id = 4;  // NEW: Echo back transaction ID
 }
 
 message GetBalanceResponse {
