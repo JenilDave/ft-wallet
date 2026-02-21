@@ -5,7 +5,6 @@ import grpc
 import sys
 from pathlib import Path
 
-# Add parent directory to path for imports
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from services.wallet_service import WalletService
@@ -18,32 +17,36 @@ class WalletBackupServicer(wallet_pb2_grpc.WalletBackupServicer):
     """Backup server that maintains wallet state"""
     
     def __init__(self):
-        self.wallet_service = WalletService("backup_wallets.json")
+        self.wallet_service = WalletService("backup_wallets.json", "backup_transactions.json")
     
     def withdraw(self, request, context):
         """Handle withdraw requests"""
         success, message, new_balance = self.wallet_service.withdraw(
             request.account_id, 
-            request.amount
+            request.amount,
+            request.transaction_id
         )
-        logger.info(f"Backup: Withdraw {request.amount} from {request.account_id} - {message}")
+        logger.info(f"Backup: Withdraw txn_id={request.transaction_id} - {message}")
         return wallet_pb2.TransactionResponse(
             success=success,
             message=message,
-            new_balance=new_balance
+            new_balance=new_balance,
+            transaction_id=request.transaction_id
         )
     
     def deposit(self, request, context):
         """Handle deposit requests"""
         success, message, new_balance = self.wallet_service.deposit(
             request.account_id, 
-            request.amount
+            request.amount,
+            request.transaction_id
         )
-        logger.info(f"Backup: Deposit {request.amount} to {request.account_id} - {message}")
+        logger.info(f"Backup: Deposit txn_id={request.transaction_id} - {message}")
         return wallet_pb2.TransactionResponse(
             success=success,
             message=message,
-            new_balance=new_balance
+            new_balance=new_balance,
+            transaction_id=request.transaction_id
         )
     
     def getBalance(self, request, context):

@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0cwallet.proto\x12\x06wallet\"5\n\x0fWithdrawRequest\x12\x12\n\naccount_id\x18\x01 \x01(\t\x12\x0e\n\x06\x61mount\x18\x02 \x01(\x01\"4\n\x0e\x44\x65positRequest\x12\x12\n\naccount_id\x18\x01 \x01(\t\x12\x0e\n\x06\x61mount\x18\x02 \x01(\x01\"\'\n\x11GetBalanceRequest\x12\x12\n\naccount_id\x18\x01 \x01(\t\"L\n\x13TransactionResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x0f\n\x07message\x18\x02 \x01(\t\x12\x13\n\x0bnew_balance\x18\x03 \x01(\x01\"G\n\x12GetBalanceResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x0f\n\x07\x62\x61lance\x18\x02 \x01(\x01\x12\x0f\n\x07message\x18\x03 \x01(\t2\xd5\x01\n\x0cWalletBackup\x12@\n\x08withdraw\x12\x17.wallet.WithdrawRequest\x1a\x1b.wallet.TransactionResponse\x12>\n\x07\x64\x65posit\x12\x16.wallet.DepositRequest\x1a\x1b.wallet.TransactionResponse\x12\x43\n\ngetBalance\x12\x19.wallet.GetBalanceRequest\x1a\x1a.wallet.GetBalanceResponseb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0cwallet.proto\x12\x06wallet\"M\n\x0fWithdrawRequest\x12\x12\n\naccount_id\x18\x01 \x01(\t\x12\x0e\n\x06\x61mount\x18\x02 \x01(\x01\x12\x16\n\x0etransaction_id\x18\x03 \x01(\t\"L\n\x0e\x44\x65positRequest\x12\x12\n\naccount_id\x18\x01 \x01(\t\x12\x0e\n\x06\x61mount\x18\x02 \x01(\x01\x12\x16\n\x0etransaction_id\x18\x03 \x01(\t\"\'\n\x11GetBalanceRequest\x12\x12\n\naccount_id\x18\x01 \x01(\t\"d\n\x13TransactionResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x0f\n\x07message\x18\x02 \x01(\t\x12\x13\n\x0bnew_balance\x18\x03 \x01(\x01\x12\x16\n\x0etransaction_id\x18\x04 \x01(\t\"G\n\x12GetBalanceResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\x12\x0f\n\x07\x62\x61lance\x18\x02 \x01(\x01\x12\x0f\n\x07message\x18\x03 \x01(\t2\xd5\x01\n\x0cWalletBackup\x12@\n\x08withdraw\x12\x17.wallet.WithdrawRequest\x1a\x1b.wallet.TransactionResponse\x12>\n\x07\x64\x65posit\x12\x16.wallet.DepositRequest\x1a\x1b.wallet.TransactionResponse\x12\x43\n\ngetBalance\x12\x19.wallet.GetBalanceRequest\x1a\x1a.wallet.GetBalanceResponseb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -32,15 +32,15 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'wallet_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
   _globals['_WITHDRAWREQUEST']._serialized_start=24
-  _globals['_WITHDRAWREQUEST']._serialized_end=77
-  _globals['_DEPOSITREQUEST']._serialized_start=79
-  _globals['_DEPOSITREQUEST']._serialized_end=131
-  _globals['_GETBALANCEREQUEST']._serialized_start=133
-  _globals['_GETBALANCEREQUEST']._serialized_end=172
-  _globals['_TRANSACTIONRESPONSE']._serialized_start=174
-  _globals['_TRANSACTIONRESPONSE']._serialized_end=250
-  _globals['_GETBALANCERESPONSE']._serialized_start=252
-  _globals['_GETBALANCERESPONSE']._serialized_end=323
-  _globals['_WALLETBACKUP']._serialized_start=326
-  _globals['_WALLETBACKUP']._serialized_end=539
+  _globals['_WITHDRAWREQUEST']._serialized_end=101
+  _globals['_DEPOSITREQUEST']._serialized_start=103
+  _globals['_DEPOSITREQUEST']._serialized_end=179
+  _globals['_GETBALANCEREQUEST']._serialized_start=181
+  _globals['_GETBALANCEREQUEST']._serialized_end=220
+  _globals['_TRANSACTIONRESPONSE']._serialized_start=222
+  _globals['_TRANSACTIONRESPONSE']._serialized_end=322
+  _globals['_GETBALANCERESPONSE']._serialized_start=324
+  _globals['_GETBALANCERESPONSE']._serialized_end=395
+  _globals['_WALLETBACKUP']._serialized_start=398
+  _globals['_WALLETBACKUP']._serialized_end=611
 # @@protoc_insertion_point(module_scope)
